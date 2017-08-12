@@ -1,0 +1,21 @@
+
+
+open a port on your local computer:
+
+
+
+            nc -nlvp {port} > {name of the file}
+          
+            for me it was :
+
+            nc -nlvp 4444 > incoming.exe
+
+
+from a remote computer, connect to the opened port 
+
+            nc -nv {ip} {port} < {file name}
+            
+            for me it was 
+            
+            
+            nc -nv 192.168.230.128 4444 < /usr/share/widnwos
