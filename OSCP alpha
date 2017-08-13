@@ -1,0 +1,26 @@
+curl -s -L (site|ip) |html2text -width '150' | uniq
+
+curl -i 10.11.1.71 
+
+gobuster -u http://10.11.1.71/ -w /usr/share/seclists/Discovery/Web_Content/common.txt -s '200,204,301,302,307,403,500' -e
+gobuster -u http://10.11.1.71/   -w /usr/share/seclists/Discovery/Web_Content/cgis.txt   -s '200,204,301,302,307,403,500' -e
+
+https://www.exploit-db.com/about/
+https://www.exploit-db.com/searchsploit/
+
+https://packetstormsecurity.com/files/tags/exploit/
+http://www.securityfocus.com/
+
+-------------------------
+
+Useful CVE sites:
+CVE lookup - https://www.cvedetails.com/vendor.php (Great to see an overview)
+CVE information - https://www.cvedetails.com/cve/[CVE]
+CVE information - http://cve.mitre.org/cgi-bin/cvename.cgi?name=[CVE]
+CVE information - https://web.nvd.nist.gov/view/vuln/detail?vulnId=[CVE]
+Depending on the site of the software, it may also be tracking CVEs on its own page (and often has a lot more information about the issue) - e.g. https://security-tracker.debian.org/tracker/[CVE]
+CVE sources - https://cve.mitre.org/data/refs/index.html
+
+--------
+
+https://github.com/mubix/shellshocker-pocs
