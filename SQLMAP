@@ -1,0 +1,4 @@
+ 
+ 
+ 
+ > sqlmap -u url --crawl=1        // finds vulnerable variables in a the whole WepApp 
