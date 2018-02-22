@@ -22,6 +22,35 @@ To identify running hosts and map a network
 > nmap -sn 172.16.12.* 
 > nmap -sn 200.200.12-13.*
 
+However, I can create a file called (hostslist.txt) containing the following IPs: 
+
+200.200.0.0/16
+200.200.123.1-12 
+172.16.12.* 
+200.200.12-13.*
+
+Then perform the next command 
+> nmap -sn -iL hostslist.txt 
+-iL = input list 
 
 
+Here's more way of discovering alive hosts in this link: https://nmap.org/book/man-host-discovery.html
 
+>>>> Once we mapped the network, we end up with a list of live hosts. These are the hosts which responded to pings or nmap probes. 
+
+___________________________________________________
+
+Determining which OS is the host running: 
+
+To fingerpring an OS you have to send a network request and analyze the responses. 
+1) Fingerprinting Tools send a series of specially crafted requests to the target host
+2) Then start analysing every bit in the responses. 
+3) Finally, the signature is compared against a database of known OS signatures.
+
+@ Offline OS fingerprinting can be done with p0f here > http://lcamtuf.coredump.cx/p0f3/
+
+> nmap -Pn -O <targets> 
+-Pn = to skip the ping scan if you already know the target is up 
+-O = Enable OS detection 
+--osscan-limit = Limit OS detection to promising targets 
+--osscan-guess = Guess OS more aggressively 
