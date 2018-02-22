@@ -54,3 +54,7 @@ To fingerpring an OS you have to send a network request and analyze the response
 -O = Enable OS detection 
 --osscan-limit = Limit OS detection to promising targets 
 --osscan-guess = Guess OS more aggressively 
+
+> nmap -O --osscan-limit <targets>            \\ Just get the promising ones. 
+
+For more info about detecting OS look up here: https://nmap.org/book/osdetect.html
