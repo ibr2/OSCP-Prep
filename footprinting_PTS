@@ -3,3 +3,12 @@
 To identify running hosts and map a network 
 
 > fping -a -g IPRANGE
+> fping -a -g 10.54.12.0/24
+> fping -a -g 10.54.12.0 10.54.12.255
+
+-a forces the tool to show only alive hosts
+-g tells the toole that we want to perform a ping sweep instead of standard ping
+
+
+
+
