@@ -57,4 +57,17 @@ To fingerpring an OS you have to send a network request and analyze the response
 
 > nmap -O --osscan-limit <targets>            \\ Just get the promising ones. 
 
-For more info about detecting OS look up here: https://nmap.org/book/osdetect.html
+For more info about detecting OS look up here:  Remote OS Detection https://nmap.org/book/osdetect.html
+
+_____________________________________________________________
+
+Once network mapping is performed, we know which nodes are alive, and associated OSs. 
+Now we need a way to discover the daemons and services running on those nodes:
+
+& PORT SCANNING: 
+is a process to know what TCP and UDP ports are open on targets. Moreover, it lets you know which daemon, in terms of software and version 
+is listing on specific port. Then using it to create a list of potential weaknesses and vulnerabilities 
+
+
+Stopped at 58. continue later 
+
