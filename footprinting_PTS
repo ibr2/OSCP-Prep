@@ -16,4 +16,12 @@ To identify running hosts and map a network
 
 
 
+- To perform a ping scan using (nmap): 
+> nmap -sn 200.200.0.0/16
+> nmap -sn 200.200.123.1-12 
+> nmap -sn 172.16.12.* 
+> nmap -sn 200.200.12-13.*
+
+
+
 
