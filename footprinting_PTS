@@ -1,0 +1,5 @@
+
+
+To identify running hosts and map a network 
+
+> fping -a -g IPRANGE
