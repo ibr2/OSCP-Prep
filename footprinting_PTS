@@ -68,6 +68,14 @@ Now we need a way to discover the daemons and services running on those nodes:
 is a process to know what TCP and UDP ports are open on targets. Moreover, it lets you know which daemon, in terms of software and version 
 is listing on specific port. Then using it to create a list of potential weaknesses and vulnerabilities 
 
+System Administrator can easily detect the scan as thye will see alot of connections to all the daemon and services on a single machine.
+To prvent that TCP SYN was invented. TCP SYN scans were invented to be stealthy by design. During a SYN scan, the scanner doesn't perform
+a full handshake, it just sends SYN packet and analyzes the response. a SYN scan can't be detected by looking at daemon logs. 
 
-Stopped at 58. continue later 
+> nmap -sS -sV -O --osscan-limit 192.168.1.0/24 
+-sT performs TCP connect scan         \\ this type of scan gets recorded in the daemon(application) logs. 
+-sS performs a SYN scan               \\ known as stealth scan, cause there is not full connection to the target ** A well configured IDS will still detect the scan ** 
+-sV performs a version detection scan \\ it's not stealthy scan, but useful 
+
+during 
 
