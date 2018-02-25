@@ -36,3 +36,55 @@ see it drops after enrting your request.
 i) Headers ordering in response messages. 
 ii) Error handling. 
 
+
+- HTTP is a web server fingerprinting tool, USES signature-base techniques to identify web servers. 
+- The most used synatx: 
+> httprint -P0 -h <target_site> -s <signatures_file>
+-P0 is to aviod pinging the host, because most web sever doesn't respond to ping request 
+-h to idenrify the targeted hosts. It is advised to use the IP address 
+-s to set the singature files for using 
+
+>> httprint -P0 -h 192.168.1.1 -s /usr/share/httprint/singatures.txt 
+
+===============================================================================================================
+4.3) HTTP verbs
+
+- Most Common HTTP methods are:
+GET, HEAD, POST, DELETE, and PUT. 
+
+i) GET is used to request a resources, when a user wants to open a page, the browser sends a GET request. 
+> GET /page.php HTTP/1.1
+> HOST: example.com
+- GET can pass an arguments to the web application: 
+> GET /page.php?course=PTS HTTP/1.1
+> HOST: www.exam.com
+
+ii) POST is used to submit a HTML form date, POST parameters must be in the message body: 
+
+> POST /login.php HTTP/1.1 
+> HOST: www.site.com 
+username=john&passwrod=mypass
+
+iii) HEAD / HTTP/1.1
+
+iv) PUT is used to upload a file to the server, it's a very dangerous feature if it's allowed or misconfigured.
+> PUT /path/to/destination HTTP/1.1
+> HOST: site.com
+
+<PUT data>
+
+
+V) DELETE is used to delete a file from the server, this is another feature should be configured wisely, as a misused DELETE leads to 
+denial of service and data loss. 
+> DELETE /path/to/destination HTTP/1.1
+
+vi) OPTIONS is used to query the web server for enabled HTTP methods:
+> OPTIONS / HTTP/1.1 
+
+
+
+
+
+
+
+
