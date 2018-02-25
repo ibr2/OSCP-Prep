@@ -19,3 +19,20 @@ iii) the Operating System hosting the web server
 HEAD request
 > nc 192.168.1.1 80 
 > HEAD / HTTP/1.0           \\ Hit return two times 
+
+* IMPORTANT and COMMON MISTAKE
+i) you HAVE to write the request in upper case. 
+ii) Netcat doesn't notify you when connecting to the sever, you HAVE to write your request when after running the command, to change this 
+behavior you COULD use the verbose (-v) command line switch
+iii) Netcat doesn't perform any kind of encryption, so you CAN'T connect to an HTTPS daemon (service). So once connecting to HTTPS you'll 
+see it drops after enrting your request. 
+
+- If you want to fingerprint an server listening only to HTTPS port, you could use openSSL command line: 
+> openssl s_client -connect <target_site>:443       \\ once entring you COULD use the HEAD verb 
+> HEAD / HTTP/1.0
+
+- When Performing a fingerprinting, A system Administrator CAN customize the web server banners to make the fingerprinting harder 
+- Automatic tools go beyond banner grabbing, they fingerprint small-implementation-dependant details such as: 
+i) Headers ordering in response messages. 
+ii) Error handling. 
+
