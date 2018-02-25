@@ -1,0 +1,21 @@
+
+
+4.2) Web Server fingerprinting  
+
+- Fingerprinting a web server means detecting: 
+i) The daemon providing the web server service, such as IIS, Apache, Nginx and others.
+ii) Its version 
+iii) the Operating System hosting the web server 
+
+
+- Netcat is a very powerfull tool known as the [TCP/IP Swiss army Knief]
+- it can be use in many different ways, could be both a server or a client. 
+*- To fingerprint a web sever you can use NetCat as a client to manually send requests to the sever and receive responses.
+
+- The following activity is called [Banner Grabbing] 
+- To grab a banner you just have to connect to a listening daemon and then read the banner it sends back to your client
+> nc <destinatio host> <port No> 
+
+HEAD request
+> nc 192.168.1.1 80 
+> HEAD / HTTP/1.0           \\ Hit return two times 
